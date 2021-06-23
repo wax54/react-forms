@@ -5,6 +5,7 @@ exports[`should match previous snapshot 1`] = `
   <div
     class="Box"
     data-testid="BoxElement"
+    style="height: 100px; width: 100px; background-color: blue;"
   />
   <button>
     X
