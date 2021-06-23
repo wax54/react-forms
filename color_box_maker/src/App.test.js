@@ -48,6 +48,7 @@ it("should remove a box from the DOM when it's X is clicked", () => {
     fireEvent.change(colorInput, { target: { value: "blue" } });
 
     fireEvent.click(btn);
+    expect(queryByTestId("BoxElement")).toBeInTheDocument();
     //Setup END
 
     const deleteBoxBtn = getByText("X");
