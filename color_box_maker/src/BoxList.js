@@ -14,14 +14,16 @@ const BoxList = () => {
             return allBoxes.filter( ({id}) => id !== deleteId)
         })
     };
-    
-return (
-    <div className="BoxList">
-        { boxes.map(({id, width, height, color}) => 
-            <Box key={id} id={id} width={width} height={height} color={color} deleteBox={deleteBox}/>)
-        }
-        <NewBoxForm onSubmit={addNewBox} /> 
-    </div>
-)};
+
+    return (
+        <div className="BoxList">
+            { 
+            boxes.map(({id, width, height, color}) => 
+                <Box key={id} id={id} width={width} height={height} color={color} deleteBox={deleteBox}/>)
+            }
+            <NewBoxForm onSubmit={addNewBox} /> 
+        </div>
+    )
+};
 
 export default BoxList;

@@ -3,9 +3,9 @@ import React, { useState } from "react";
 
 const NewBoxForm = ({onSubmit}) => {
     const INITIAL_FORM_DATA = {
-        height: '100',
-        width: '100',
-        color: 'red'
+        height: '',
+        width: '',
+        color: ''
     };
     const [formData, setFormData] = useState(INITIAL_FORM_DATA); 
 
