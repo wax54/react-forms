@@ -2,7 +2,7 @@ import React from "react";
 import BoxList from './BoxList';
 import "./App.css";
 
-/** Simple app that just shows the LightsOut game. */
+/** Simple app that makes a box list which can make colored boxes of various sizes */
 
 function App() {
   return (

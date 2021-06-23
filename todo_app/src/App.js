@@ -2,7 +2,7 @@ import React from "react";
 import TodoList from './TodoList';
 import "./App.css";
 
-/** Simple app that just shows the LightsOut game. */
+/** Simple app that shows a Todo List which can CRUD Todos. */
 
 function App() {
   return (

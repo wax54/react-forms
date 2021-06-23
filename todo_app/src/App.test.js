@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent} from "@testing-library/react";
 import App from './App';
 
 it("Doesn't Blow up", () => {
@@ -11,48 +11,36 @@ it('should match previous snapshot', function () {
     expect(asFragment()).toMatchSnapshot();
 });
 
-// it("should add a new box to the DOM", () => {
-//     let boxStats = {};
+it("should add a new todo to the DOM", () => {
+    let testText = "NEW TODO";
+    const { getByLabelText, getByText} = render(<App />);
 
-//     const { getByLabelText, getByText, getByTestId } = render(<App />);
+    const taskInput = getByLabelText("Task", { exact: false });
 
-//     const heightInput = getByLabelText("Height", { exact: false });
-//     const widthInput = getByLabelText("Width", { exact: false });
-//     const colorInput = getByLabelText("Color", { exact: false });
-
-//     const btn = getByText("Make me a Box", { exact: false });
+    const btn = getByText("Add Todo", { exact: false });
 
 
-//     fireEvent.change(heightInput, { target: { value: "100" } });
-//     fireEvent.change(widthInput, { target: { value: "200" } });
-//     fireEvent.change(colorInput, { target: { value: "blue" } });
+    fireEvent.change(taskInput, { target: { value: testText } });
+    fireEvent.click(btn);
 
-//     fireEvent.click(btn);
+    expect(getByText(testText)).toBeInTheDocument();
+});
 
-//     expect(getByTestId("BoxElement")).toBeInTheDocument();
-// });
+it("should remove a TODO from the DOM when it's X is clicked", () => {
+    let boxStats = {};
 
-// it("should remove a box from the DOM when it's X is clicked", () => {
-//     let boxStats = {};
+    const { getByLabelText, getByText, queryByText } = render(<App />);
+    //setup START
+    let testText = "NEW TODO";
+    const taskInput = getByLabelText("Task", { exact: false });
+    const btn = getByText("Add Todo", { exact: false });
+    fireEvent.change(taskInput, { target: { value: testText } });
+    fireEvent.click(btn);
+    expect(getByText(testText)).toBeInTheDocument();
+    //Setup END
 
-//     const { getByLabelText, getByText, getByTestId, queryByTestId } = render(<App />);
-//     //setup START
-//     const heightInput = getByLabelText("Height", { exact: false });
-//     const widthInput = getByLabelText("Width", { exact: false });
-//     const colorInput = getByLabelText("Color", { exact: false });
+    const deleteTodoBtn = getByText("X");
+    fireEvent.click(deleteTodoBtn);
 
-//     const btn = getByText("Make me a Box", { exact: false });
-
-//     fireEvent.change(heightInput, { target: { value: "100" } });
-//     fireEvent.change(widthInput, { target: { value: "200" } });
-//     fireEvent.change(colorInput, { target: { value: "blue" } });
-
-//     fireEvent.click(btn);
-//     expect(queryByTestId("BoxElement")).toBeInTheDocument();
-//     //Setup END
-
-//     const deleteBoxBtn = getByText("X");
-//     fireEvent.click(deleteBoxBtn);
-
-//     expect(queryByTestId("BoxElement")).not.toBeInTheDocument();
-// })
+    expect(queryByText(testText)).not.toBeInTheDocument();
+})
