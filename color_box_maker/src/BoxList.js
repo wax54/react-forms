@@ -5,7 +5,7 @@ import Box from './Box';
 import NewBoxForm from './NewBoxForm';
 
 const BoxList = () => {
-    const [ boxes, setBoxes ] = useState([{id: uuid(), width: 100, height:100, color: 'black'}]);
+    const [ boxes, setBoxes ] = useState([]);
     const addNewBox = ({width, height, color}) => {
         setBoxes(boxes => [...boxes, { id: uuid(), width, height, color }])
     };

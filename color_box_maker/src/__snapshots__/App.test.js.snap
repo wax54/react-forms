@@ -8,13 +8,6 @@ exports[`should match previous snapshot 1`] = `
     <div
       class="BoxList"
     >
-      <div
-        class="Box"
-        style="height: 100px; width: 100px; background-color: black;"
-      />
-      <button>
-        X
-      </button>
       <form>
         <label
           for="height-input"

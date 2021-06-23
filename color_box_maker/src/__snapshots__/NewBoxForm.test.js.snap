@@ -2,11 +2,48 @@
 
 exports[`should match previous snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="Box"
-  />
-  <button>
-    X
-  </button>
+  <form>
+    <label
+      for="height-input"
+    >
+      Height: 
+    </label>
+    <input
+      id="height-input"
+      min="0"
+      name="height"
+      required=""
+      type="number"
+      value=""
+    />
+    <label
+      for="width-input"
+    >
+      Width: 
+    </label>
+    <input
+      id="width-input"
+      min="0"
+      name="width"
+      required=""
+      type="number"
+      value=""
+    />
+    <label
+      for="color-input"
+    >
+      Color: 
+    </label>
+    <input
+      id="color-input"
+      name="color"
+      required=""
+      type="text"
+      value=""
+    />
+    <button>
+      Make me a Box!
+    </button>
+  </form>
 </DocumentFragment>
 `;

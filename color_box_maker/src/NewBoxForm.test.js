@@ -12,13 +12,17 @@ it('should match previous snapshot', function () {
 });
 
 it("should allow users to type into the inputs", () =>{
-    const { getByLabelText, getByText } = render(<NewBoxForm />);
+    let boxStats = {};
 
-    const heightInput = getByLabelText("Height: ");
-    const widthInput = getByLabelText("Width: ");
-    const colorInput = getByLabelText("Color: ");
+    const mockedOnSubmit = boxInfo => boxStats = boxInfo;
 
-    const btn = getByText("X");
+    const { getByLabelText, getByText } = render(<NewBoxForm onSubmit={mockedOnSubmit} />);
+
+    const heightInput = getByLabelText("Height", { exact: false });
+    const widthInput = getByLabelText("Width", { exact: false });
+    const colorInput = getByLabelText("Color", { exact: false });
+
+    const btn = getByText("Make me a Box", { exact: false });
 
 
     fireEvent.change(heightInput, { target: { value: "100" } });
@@ -27,7 +31,7 @@ it("should allow users to type into the inputs", () =>{
 
     fireEvent.click(btn);
 
-    expect()
+    expect(boxStats).toEqual({height: "100", width: "200", color: "blue"});
 })
 
 
